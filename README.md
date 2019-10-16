@@ -53,7 +53,7 @@ npm start
 
 ### Build Prod Version
 
-Production site version
+Production app version
 
 ```
 npm run build
