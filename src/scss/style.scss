@@ -1,0 +1,410 @@
+@import 'vars.scss';
+@import 'fonts.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-family: $fontFamily;
+  color: $text;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+h1,
+.h1 {
+  font-size: 2.25rem;
+}
+
+h2,
+.h2 {
+  font-size: 2rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.75rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.5rem;
+}
+
+h5,
+.h5 {
+  font-size: 1.25rem;
+}
+
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  overflow: hidden;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.app {
+  width: 100%;
+}
+
+.app-form {
+  display: none;
+}
+
+.page {
+  &-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    overflow: hidden;
+    background-color: $second;
+  }
+
+  &-section {
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &-title {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    color: #8c929c;
+    border-left: 0.5rem solid #e1e6e9;
+    overflow: hidden;
+
+    &-inner {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 1.5rem);
+        width: 10000px;
+        height: 1px;
+        background-color: #e1e6e9;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.text-dark {
+  color: $dark;
+}
+
+.text-main {
+  color: $main;
+}
+
+.btn {
+  max-width: 100%;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: $main;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: 0;
+  border: 0;
+  border-radius: $borderRadius;
+  overflow: hidden;
+  transition: $transitionDuration;
+  opacity: 0.85;
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
+    opacity: 1;
+  }
+
+  &:not(:disabled):active {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+
+  &-sm {
+    padding: 0.5rem;
+  }
+
+  &-main {
+    color: #fff;
+    background-color: $main;
+  }
+
+  &-second {
+    color: $text;
+    background-color: $system;
+  }
+}
+
+.card {
+  padding: 1.75rem;
+  background-color: #fff;
+  border: 1px solid $system;
+  border-radius: $borderRadius;
+  box-shadow: 0.125rem 0.125rem 0.125rem #efefef;
+}
+
+.table {
+  max-width: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  overflow: auto;
+
+  &-wrap {
+    max-height: 50vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th,
+  td {
+    padding: 1.5rem;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #a0a4ae;
+    text-align: left;
+    background-color: $second;
+
+    &:first-child {
+      border-top-left-radius: $borderRadius;
+    }
+
+    &:last-child {
+      border-top-right-radius: $borderRadius;
+    }
+  }
+
+  td {
+    border-bottom: 1px solid $system;
+  }
+}
+
+.item {
+  &-date {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &-comment {
+    min-width: 20rem;
+  }
+
+  &-actions {
+    white-space: nowrap;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.col {
+  flex-basis: 50%;
+  max-width: 50%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+
+  &-full {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+.label {
+  display: inline-block;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 2.75rem;
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  font-family: $fontFamily;
+  color: $text;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 1px solid $system;
+  border-radius: $borderRadius;
+  transition: border-color $transitionDuration;
+
+  &:disabled {
+    opacity: 0.7;
+  }
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
+    border-color: $text;
+  }
+
+  &-date {
+    padding-right: 3rem;
+    background-image: url('/public/img/icon-сalendar.svg');
+    background-position: right 1rem center;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+  }
+
+  &-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    & > .input {
+      position: relative;
+      flex: 1 1 auto;
+      width: 1%;
+
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &-prepend,
+    &-append {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: #fafafa;
+      border: 1px solid $system;
+      border-radius: $borderRadius;
+    }
+
+    &-prepend {
+      margin-right: -1px;
+    }
+
+    &-append {
+      margin-left: -1px;
+    }
+
+    & > .input-group-prepend {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    & > .input-group-append {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+textarea.input {
+  min-height: 4rem;
+  max-height: 10rem;
+  resize: vertical;
+  overflow: auto;
+}
+
+@media (max-width: 575.98px) {
+  html {
+    font-size: 12px;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 1rem;
+  }
+
+  .col {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}

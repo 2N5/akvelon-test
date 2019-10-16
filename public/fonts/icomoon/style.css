@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/public/fonts/icomoon/fonts/icomoon.eot?pf4cl6');
+  src:  url('/public/fonts/icomoon/fonts/icomoon.eot?pf4cl6#iefix') format('embedded-opentype'),
+    url('/public/fonts/icomoon/fonts/icomoon.ttf?pf4cl6') format('truetype'),
+    url('/public/fonts/icomoon/fonts/icomoon.woff?pf4cl6') format('woff'),
+    url('/public/fonts/icomoon/fonts/icomoon.svg?pf4cl6#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-delete:before {
+  content: "\e900";
+}
+.icon-settings:before {
+  content: "\e901";
+}
+.icon-calendar:before {
+  content: "\e902";
+}
+.icon-edit:before {
+  content: "\e903";
+}
